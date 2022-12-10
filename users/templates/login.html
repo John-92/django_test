@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+ <!--要么写具体的url，也可以用 url 'app:urlname' -->
+<form action="/users/valid_login/" method="GET">
+    {% if errors %}
+        {% for _,error in errors.items %}
+            {{ error }}
+        {% endfor %}
+    {% endif %}
+  <!--用于csrf验证 -->
+    {% csrf_token %}
+    <!--autocomplete="off"表示不会自动填充  type 有"text"，password,注意form中，后端获取的变量名是name属性-->
+    <input type="text" name="username" placeholder="username" autocomplete="off"/><br>
+    <input type="password"  name="password" placeholder="password"/>  <br>
+    <input type="submit" value="提交"/>
+
+</form>
+</body>
+</html>
