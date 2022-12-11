@@ -5,11 +5,11 @@ import time
 # Create your views here.
 def index(request):
     # return HttpResponse('HELLO WORLD')
-    return render(request,'index.html',{'current_time':time.time()})
+    return render(request,'users/index.html',{'current_time':time.time()})
 
 def login(request):
     # return HttpResponse('HELLO WORLD')
-    return render(request,'login.html',{'current_time000':time.time()})
+    return render(request,'users/login.html',{'current_time000':time.time()})
 
 def valid_login(request):
     # return HttpResponse('HELLO WORLD')
@@ -36,3 +36,6 @@ def valid_login(request):
 
 
     # return redirect(request,'index.html',{'current_time':user})
+
+def logout(request):
+    return redirect('users:login')
